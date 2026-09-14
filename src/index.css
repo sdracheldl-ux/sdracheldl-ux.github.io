@@ -1,0 +1,249 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #f0f2f5;
+  color: #333;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.page-container {
+  padding: 16px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.filter-bar {
+  background: #fff;
+  padding: 16px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.stats-bar {
+  background: #fff;
+  padding: 10px 16px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #666;
+}
+
+.stats-bar .stats-highlight {
+  color: #1677ff;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.table-card {
+  background: #fff;
+  padding: 0 16px 16px;
+  border-radius: 4px;
+}
+
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.table-toolbar-left {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* 表格蓝色表头样式 */
+.ant-table-thead > tr > th {
+  background: #e6f4ff !important;
+  color: #262626 !important;
+  font-weight: 600;
+  font-size: 14px;
+  border-bottom: none !important;
+  padding: 10px 12px !important;
+  white-space: nowrap !important;
+  margin: 0 !important;
+}
+
+.ant-table-thead > tr > th::before {
+  display: none !important;
+}
+
+.ant-table-tbody > tr:hover > td {
+  background: #f0f7ff !important;
+}
+
+.ant-table-tbody > tr > td {
+  padding: 10px 12px !important;
+  font-size: 14px;
+  border-bottom: 1px solid #f0f0f0;
+  white-space: nowrap !important;
+  border-top: none !important;
+}
+
+/* 隐藏AntD的测量行 */
+.ant-table-measure-row {
+  display: none !important;
+}
+
+/* 真正的第一行数据顶部加蓝色分隔线，替代表头底边框 */
+.ant-table-tbody > tr.ant-table-measure-row + tr > td,
+.ant-table-tbody > tr:first-child:not(.ant-table-measure-row) > td {
+  border-top: 2px solid #91caff !important;
+}
+
+.ant-table {
+  font-size: 14px;
+  border-collapse: collapse !important;
+}
+
+.ant-table table {
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+}
+
+/* sticky holder消除间隙 */
+.ant-table-sticky-holder {
+  margin-bottom: -1px !important;
+  overflow: hidden !important;
+}
+
+.ant-table-body {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.ant-table-content {
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.ant-table-cell {
+  white-space: nowrap !important;
+}
+
+/* 固定列样式 */
+.ant-table-cell-fix-left,
+.ant-table-cell-fix-right {
+  background: #fff !important;
+  z-index: 2 !important;
+}
+
+.ant-table-thead > tr > th.ant-table-cell-fix-left,
+.ant-table-thead > tr > th.ant-table-cell-fix-right {
+  background: #e6f4ff !important;
+  z-index: 3 !important;
+}
+
+.ant-table-tbody > tr > td.ant-table-cell-fix-left,
+.ant-table-tbody > tr > td.ant-table-cell-fix-right {
+  background: #fff !important;
+}
+
+.ant-table-tbody > tr:hover > td.ant-table-cell-fix-left,
+.ant-table-tbody > tr:hover > td.ant-table-cell-fix-right {
+  background: #f0f7ff !important;
+}
+
+/* 操作列右侧间距统一：给最右侧固定列增加右边距，与左侧对称 */
+.ant-table-cell-fix-right:last-child {
+  padding-right: 16px !important;
+}
+
+.ant-table-thead > tr > th.ant-table-cell-fix-right:last-child {
+  padding-right: 16px !important;
+  text-align: center;
+}
+
+.ant-table-ping-left .ant-table-cell-fix-left:last-child::after,
+.ant-table-ping-right .ant-table-cell-fix-right:first-child::before {
+  box-shadow: none !important;
+}
+
+/* 操作链接 */
+.action-link {
+  color: #1677ff;
+  cursor: pointer;
+  margin-right: 12px;
+  font-size: 14px;
+}
+.action-link:hover {
+  color: #4096ff;
+  text-decoration: underline;
+}
+.action-link.danger {
+  color: #ff4d4f;
+}
+.action-link.danger:hover {
+  color: #ff7875;
+}
+
+/* 表单区域 */
+.form-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1677ff;
+  margin: 16px 0 12px;
+  padding-left: 8px;
+  border-left: 3px solid #1677ff;
+}
+
+/* AI 摘要按钮：渐变动态背景 */
+.ai-grad-btn {
+  color: #fff !important;
+  border: none !important;
+  background: linear-gradient(120deg, #1677ff 0%, #36cfc9 35%, #722ed1 70%, #1677ff 100%);
+  background-size: 220% 220%;
+  animation: aiGradientShift 6s ease infinite;
+  box-shadow: 0 2px 6px rgba(22, 119, 255, 0.25);
+}
+.ai-grad-btn:hover,
+.ai-grad-btn:focus {
+  color: #fff !important;
+  opacity: 0.92;
+  box-shadow: 0 2px 10px rgba(22, 119, 255, 0.4);
+}
+@keyframes aiGradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* AI 招商总结卡片：浅色渐变动态背景（区别于普通统计卡片） */
+.ai-summary-card {
+  background: linear-gradient(120deg, #eef5ff 0%, #f4eefe 30%, #e6f9f3 60%, #eef5ff 100%);
+  background-size: 240% 240%;
+  animation: aiSummaryFlow 12s ease infinite;
+  border: 1px solid #dbe7ff;
+}
+.ai-summary-card .ant-card-head {
+  background: transparent;
+}
+@keyframes aiSummaryFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
